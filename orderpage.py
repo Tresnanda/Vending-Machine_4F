@@ -12,8 +12,9 @@ def resourcePath(relativePath):
     return os.path.join(basePath, relativePath)
 
 def order_page(asd):
-    asd.iconify()
+    asd.withdraw()
     app = CTkToplevel()
+    app.title("Order Page")
     screen_width = app.winfo_screenwidth()
     screen_height = app.winfo_screenheight()
     app.geometry(f"{370}x{600}")

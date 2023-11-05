@@ -127,6 +127,7 @@ def topping_next(asd, kepedasan_choice, telor_checkbox, ayam_checkbox, udang_che
 def food_page(asd, main):
     asd.destroy()
     app = CTkToplevel()
+    app.title("Food Page")
     screen_width = app.winfo_screenwidth()
     screen_height = app.winfo_screenheight()
     app.geometry(f"{500}x{600}")
@@ -174,6 +175,7 @@ def food_page(asd, main):
 def topping_page(asd, kepedasan_choice, main):
     asd.destroy()
     app = CTkToplevel()
+    app.title("Topping Page")
     screen_width = app.winfo_screenwidth()
     screen_height = app.winfo_screenheight()
     app.geometry(f"{700}x{600}")
@@ -231,6 +233,7 @@ def topping_page(asd, kepedasan_choice, main):
 def drink_page(asd, main):
     asd.destroy()
     app = CTkToplevel()
+    app.title("Drink Page")
     screen_width = app.winfo_screenwidth()
     screen_height = app.winfo_screenheight()
     app.geometry(f"{500}x{600}")
@@ -289,6 +292,7 @@ def drink_next(combobox, combobox2, asd, main):
 
     asd.destroy()
     app = CTkToplevel()
+    app.title("Add More?")
     screen_width = app.winfo_screenwidth()
     screen_height = app.winfo_screenheight()
     app.geometry(f"{370}x{600}")
@@ -305,7 +309,7 @@ def drink_next(combobox, combobox2, asd, main):
     text1.pack(pady=30)
     food_data = Image.open(resourcePath('img/food.png'))
     food = CTkImage(light_image=food_data, size=(150, 150))
-    button1 = CTkButton(master=app, text='', image=food, bg_color='transparent', fg_color='transparent', hover=False, command=lambda: (more_food(app))).pack(pady=10)
+    button1 = CTkButton(master=app, text='', image=food, bg_color='transparent', fg_color='transparent', hover=False, command=lambda: (more_food(app, main))).pack(pady=10)
     beverage_data = Image.open(resourcePath('img/beverage.png'))
     beverage = CTkImage(light_image=beverage_data, size=(150, 150))
     button2 = CTkButton(master=app, text='', image=beverage, fg_color='transparent', hover=False, command=lambda: (drink_page(app, main)))
@@ -320,10 +324,10 @@ def drink_next(combobox, combobox2, asd, main):
     button_checkout.tkraise()
     button_checkout.pack(pady=10)
 
-    def more_food(asd):
+    def more_food(asd, main):
         global string
         string += 'Y'
-        food_page(asd)
+        food_page(asd, main)
 
     def checkout(asd, main):
         global string
@@ -332,6 +336,7 @@ def drink_next(combobox, combobox2, asd, main):
         a.setFinal_states({39})
         asd.destroy()
         app = CTkToplevel()
+        app.title("Receipt Info")
         screen_width = app.winfo_screenwidth()
         screen_height = app.winfo_screenheight()
         app.geometry(f"{370}x{600}")
